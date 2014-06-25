@@ -59,7 +59,8 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w \a\]$PS1"
+    PS1='\[\e[1;49;93m\][\A \u@\h \w]\n\$\[\e[0m\] '
+  #"\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w \a\]$PS1"
     ;;
 *)
     ;;
@@ -101,4 +102,5 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/media/shared/workspaces/android/android-sdk-linux/tools
+
+stty -ixon # disable terminal control flow -> can use C-s in history search now
