@@ -32,7 +32,8 @@
     rainbow-delimiters 
     scala-mode 
     smex 
-    sml-modeline))
+    sml-modeline
+    sublime-themes))
 
 (dolist (p custom-packages)
   (when (not (package-installed-p p))
